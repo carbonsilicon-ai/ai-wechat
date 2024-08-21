@@ -21,6 +21,7 @@ plugins/**/
 !plugins/dungeon
 !plugins/finish
 !plugins/godcmd
+!plugins/SciGPT
 !plugins/tool
 !plugins/banwords
 !plugins/banwords/**/
