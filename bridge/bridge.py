@@ -58,6 +58,13 @@ class Bridge(object):
                     self.btype["voice_to_text"] = const.LINKAI
                 if not conf().get("text_to_voice") or conf().get("text_to_voice") in ["openai", const.TTS_1, const.TTS_1_HD]:
                     self.btype["text_to_voice"] = const.LINKAI
+            
+            if conf().get("use_scigpt") and conf().get("scigpt_api_key"):
+                self.btype["chat"] = const.SciGPT
+                if not conf().get("voice_to_text") or conf().get("voice_to_text") in ["openai"]:
+                    self.btype["voice_to_text"] = const.SciGPT
+                if not conf().get("text_to_voice") or conf().get("text_to_voice") in ["openai", const.TTS_1, const.TTS_1_HD]:
+                    self.btype["text_to_voice"] = const.SciGPT
 
         self.bots = {}
         self.chat_bots = {}

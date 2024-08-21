@@ -12,13 +12,13 @@ from .utils import Util
 from config import plugin_config
 
 
-@plugins.register(
-    name="linkai",
-    desc="A plugin that supports knowledge base and midjourney drawing.",
-    version="0.1.0",
-    author="https://link-ai.tech",
-    desire_priority=99
-)
+# @plugins.register(
+#     name="linkai",
+#     desc="A plugin that supports knowledge base and midjourney drawing.",
+#     version="0.1.0",
+#     author="https://link-ai.tech",
+#     desire_priority=99
+# )
 class LinkAI(Plugin):
     def __init__(self):
         super().__init__()

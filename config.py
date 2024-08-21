@@ -22,6 +22,10 @@ available_setting = {
     "use_azure_chatgpt": False,  # 是否使用azure的chatgpt
     "azure_deployment_id": "",  # azure 模型部署名称
     "azure_api_version": "",  # azure api版本
+    "use_scigpt": False,
+    "scigpt_api_key": "scigpt_api_key_fake",
+    "scigpt_app_code": "scigpt_app_code",
+    "scigpt_api_base": "https://inplat.drugflow.com/api",
     # Bot触发配置
     "single_chat_prefix": ["bot", "@bot"],  # 私聊时文本需要包含该前缀才能触发机器人回复
     "single_chat_reply_prefix": "[bot] ",  # 私聊时自动回复的前缀，用于区分真人

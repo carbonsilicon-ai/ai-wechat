@@ -4,6 +4,7 @@ CHATGPT = "chatGPT"
 BAIDU = "baidu"  # 百度文心一言模型
 XUNFEI = "xunfei"
 CHATGPTONAZURE = "chatGPTOnAzure"
+SciGPT = 'SciGPT'
 LINKAI = "linkai"
 CLAUDEAI = "claude"  # 使用cookie的历史模型
 CLAUDEAPI= "claudeAPI"  # 通过Claude api调用模型

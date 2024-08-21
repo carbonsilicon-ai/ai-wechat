@@ -21,6 +21,11 @@ def create_bot(bot_type):
         # ChatGPT 网页端web接口
         from bot.chatgpt.chat_gpt_bot import ChatGPTBot
         return ChatGPTBot()
+    
+    elif bot_type == const.SciGPT:
+        # OpenAI 官方对话模型API
+        from bot.scigpt.scigpt_bot import SciGPTBot
+        return SciGPTBot()
 
     elif bot_type == const.OPEN_AI:
         # OpenAI 官方对话模型API
