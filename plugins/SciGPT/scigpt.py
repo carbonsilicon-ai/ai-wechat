@@ -39,6 +39,10 @@ class SciGPT(Plugin):
         if context.type not in [ContextType.TEXT, ContextType.IMAGE, ContextType.IMAGE_CREATE, ContextType.FILE,
                                 ContextType.SHARING]:
             return
+        
+        if context.type == ContextType.TEXT and context.content == '退出对话':
+            _delete_file_id(context)
+            print('delete file')
 
         if context.type in [ContextType.FILE]:
             user_id = _find_user_id(context)
@@ -120,6 +124,11 @@ def _set_reply_text(content: str, e_context: EventContext, level: ReplyType = Re
 def _get_trigger_prefix():
     return conf().get("plugin_trigger_prefix", "$")
 
+
+def _delete_file_id(context):
+    user_id = _find_user_id(context)
+    if user_id:
+        USER_FILE_MAP.pop(user_id + "-file_id")
 
 def _find_file_id(context):
     user_id = _find_user_id(context)
