@@ -6,11 +6,19 @@ import os
 import html
 
 
+def _change_url(url):
+    if url.startswith("http://mp.weixin."):
+        # 升级成https
+        url = url.replace("http://mp.weixin.", "https://mp.weixin.")
+    return url
+
+
 class Summary:
     def __init__(self):
         pass
 
-    def summary_url(self, sender_id: str = "sender_id", url: str = "not_url", parse_type: int = 1):
+    def summary_url(self, sender_id: str = "sender_id", url: str = "not_url", parse_type: int = 0):
+        url = _change_url(url)
         multipart_data = MultipartEncoder(
             fields={
                 "sender_id": sender_id,
@@ -30,7 +38,7 @@ class Summary:
 
         return self._parse_summary_res(res)
 
-    def summary(self, file_path: str, sender_id: str = "sender_id", url: str = "not_url", parse_type: int = 1):
+    def summary(self, file_path: str, sender_id: str = "sender_id", url: str = "not_url", parse_type: int = 0):
         # 创建 MultipartEncoder 对象，包含文件和其他表单数据
         title = file_path.split('/')[-1]
         with open(file_path, "rb") as file:
